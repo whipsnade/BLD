@@ -9,9 +9,6 @@ public class MyRunApplication extends Application {
 	private Set<Class<?>> empty = new HashSet<Class<?>>();
 
 	public MyRunApplication() {
-		singletons.add(new IndustryService());
-		singletons.add(new MapService());
-		singletons.add(new CategoryService());
 		singletons.add(new ConfigUtilService());
 	}
 

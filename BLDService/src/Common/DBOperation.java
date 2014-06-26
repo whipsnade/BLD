@@ -9,6 +9,8 @@
 
 package Common;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -16,8 +18,25 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import Business.OrderOperator;
+
 public class DBOperation {
-	public static <Object> boolean add(Object obj) {
+	private static DBOperation m_Instance = null;
+	 
+    private DBOperation() {
+    	
+    }
+    
+    public static DBOperation getInstance() {
+        if (m_Instance == null) {
+        	m_Instance = new DBOperation();
+        }
+        
+        return m_Instance;
+    }
+	
+	
+	public  <Object> boolean add(Object obj) {
 		Configuration cfg = new Configuration().configure(); 
         SessionFactory factory = cfg.buildSessionFactory();
         
@@ -42,7 +61,8 @@ public class DBOperation {
         }
 	}
 	
-	public static <Object> boolean update(Object obj) {
+
+	public  <Object> boolean update(Object obj) {
 		Configuration cfg = new Configuration().configure(); 
         SessionFactory factory = cfg.buildSessionFactory();
         
@@ -67,7 +87,7 @@ public class DBOperation {
         }
 	}
 	
-	public static <Object> boolean delete(Object obj) {
+	public  <Object> boolean delete(Object obj) {
 		Configuration cfg = new Configuration().configure(); 
         SessionFactory factory = cfg.buildSessionFactory();
         
@@ -92,7 +112,7 @@ public class DBOperation {
         }
 	}
 	
-	public static boolean delete(String sql){
+	public  boolean delete(String sql){
 		Configuration cfg = new Configuration().configure(); 
 		 SessionFactory factory = cfg.buildSessionFactory();
 		Session session = null;
@@ -114,4 +134,6 @@ public class DBOperation {
 				   session.close();
 			   }
 	}
+	
+
 }

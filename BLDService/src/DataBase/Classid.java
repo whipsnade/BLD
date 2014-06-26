@@ -8,11 +8,11 @@ public class Classid implements java.io.Serializable {
 
 	// Fields
 
-	private long id;
-	private String table;
-	private String key;
+	private String id;
+	private String classname;
+	private String keyword;
 	private long record;
-	private long long_;
+	private long length;
 
 	// Constructors
 
@@ -21,43 +21,43 @@ public class Classid implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Classid(long id) {
+	public Classid(String id) {
 		this.id = id;
 	}
 
 	/** full constructor */
-	public Classid(long id, String table, String key, long record, long long_) {
+	public Classid(String id, String classname, String keyword, long record, long length) {
 		this.id = id;
-		this.table = table;
-		this.key = key;
+		this.classname = classname;
+		this.keyword = keyword;
 		this.record = record;
-		this.long_ = long_;
+		this.length = length;
 	}
 
 	// Property accessors
 
-	public long getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getTable() {
-		return this.table;
+	public String getClassname() {
+		return this.classname;
 	}
 
-	public void setTable(String table) {
-		this.table = table;
+	public void setClassname(String classname) {
+		this.classname = classname;
 	}
 
-	public String getKey() {
-		return this.key;
+	public String getKeyword() {
+		return this.keyword;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 	public long getRecord() {
@@ -68,12 +68,12 @@ public class Classid implements java.io.Serializable {
 		this.record = record;
 	}
 
-	public long getLong_() {
-		return this.long_;
+	public long getLength() {
+		return this.length;
 	}
 
-	public void setLong_(long long_) {
-		this.long_ = long_;
+	public void setLength(long length) {
+		this.length = length;
 	}
 
 }

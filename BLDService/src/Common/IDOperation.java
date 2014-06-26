@@ -7,11 +7,15 @@
  * *************************************************************
  */
 package Common;
+import java.util.List;
+
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import DAO.DaoFactory;
 import DataBase.Classid;
 
 /** 
@@ -32,37 +36,35 @@ public class IDOperation {
      * Output:@param ID值(如“SJ0006”)
      * *************************************************************
 	 */
-	public static String getClassID(String className) {
-		Session session = null;
-		String baseValue = "00000";//数值基准部分
-		
+	public static String getClassID(Object obj) {
+		String Key="";
         try{
-        	SessionFactory sf = new Configuration().configure().buildSessionFactory();
-	        session = sf.openSession();
-	        Transaction tx = session.beginTransaction();
-	        Classid obj = ((Classid)session.get(Classid.class, className));
-			if (obj != null) {
-				/* ID值加1后更改数据库 */
-				SQLQuery query = session
-						.createSQLQuery("update classid set record=:record where table=:table");
-				query.setParameter("record", obj.getRecord() + 1);
-				query.setParameter("ClassName", className);
-				query.executeUpdate();
-				tx.commit();
-
-				String value = String.valueOf(obj.getRecord());
-				String classID = obj.getKey() + baseValue.substring(0, baseValue.length() - value.length()) + value;
-				return classID;
-			}
+        	String table=obj.getClass().getName();
+        	List<Classid> list = DaoFactory.getInstance().getClassidDao().findByProperty("classname", table);
+        	if(list!=null && list.size()>0){
+        		Classid dst=list.get(0);
+        		Key=dst.getKeyword();
+        		long record=dst.getRecord()+1;
+        		String num = Long.toString(record);
+        		for(int i =num.length(); i<dst.getLength();i++){
+        			Key+="0";
+        		}
+        		Key+=num;
+        		dst.setRecord(record);
+        		DaoFactory.getInstance().getClassidDao().update(dst);
+        		return Key;
+        	}
+        	else{
+        		
+        	}
+        	
+			
 			
         }catch(Exception e){
         	e.printStackTrace();  
-            session.getTransaction().rollback();
         }
         finally {//保证资源得到释放
-               if(session != null) {
-                  session.close();
-               }
+
         }
         
 		return null;

@@ -3,7 +3,7 @@
   type="WEB"
   name="BLDService"
   id="myeclipse.1396535103934"
-  context-root="/Service"
+  context-root="/BLDService"
   j2ee-spec="5.0"
   archive="BLDService.war">
   <attributes>

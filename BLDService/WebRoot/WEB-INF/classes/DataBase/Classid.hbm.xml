@@ -6,21 +6,21 @@
 -->
 <hibernate-mapping>
     <class name="DataBase.Classid" table="classid" catalog="bld">
-        <id name="id" type="long">
+        <id name="id" type="string">
             <column name="ID" precision="10" scale="0" />
             <generator class="assigned" />
         </id>
-        <property name="table" type="string">
-            <column name="table" length="10" />
+        <property name="classname" type="string">
+            <column name="classname" length="20" />
         </property>
-        <property name="key" type="string">
-            <column name="key" length="10" />
+        <property name="keyword" type="string">
+            <column name="keyword" length="10" />
         </property>
         <property name="record" type="long">
             <column name="record" precision="10" scale="0" />
         </property>
-        <property name="long_" type="long">
-            <column name="long" precision="10" scale="0" />
+        <property name="length" type="long">
+            <column name="length" precision="10" scale="0" />
         </property>
     </class>
 </hibernate-mapping>

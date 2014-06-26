@@ -10,6 +10,7 @@
 package Common;
 import net.sf.json.*;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -37,7 +38,9 @@ public class CommonJson {
      * *************************************************************
 	 */
 	public static String list2Json(List<?> list) {
-		JSONArray json = JSONArray.fromObject(list);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
+		JSONArray json = JSONArray.fromObject(list, jsonConfig);
 		return json.toString();
 	}
 	
@@ -50,7 +53,9 @@ public class CommonJson {
      * *************************************************************
 	 */
 	public static <Object> String object2Json(Object obj) {
-	    JSONObject json = JSONObject.fromObject(obj);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
+	    JSONObject json = JSONObject.fromObject(obj,jsonConfig);
 	    return json.toString();
 	}
 	
