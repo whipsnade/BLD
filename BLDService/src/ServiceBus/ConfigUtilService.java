@@ -15,6 +15,8 @@ import Common.CommonJson;
 import Common.IDOperation;
 import DAO.DaoFactory;
 import DAO.UserDaoImpl;
+
+import DataBase.Complaint;
 import DataBase.User;
 
 
@@ -29,6 +31,11 @@ public class ConfigUtilService {
 	public String getIconList() {
 		List<User> list = DaoFactory.getInstance().getUserDao().findAll();
 		String ID = IDOperation.getClassID(new User());
+		Complaint domain = new Complaint();
+		domain.setComments("aaa");
+		domain.setOrderId("1");
+		DaoFactory.getInstance().getComplaintDao().save(domain);
+
 		return CommonJson.list2Json(list);
 	}
 	

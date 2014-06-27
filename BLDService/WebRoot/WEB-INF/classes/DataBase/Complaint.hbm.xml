@@ -6,16 +6,15 @@
 -->
 <hibernate-mapping>
     <class name="DataBase.Complaint" table="complaint" catalog="bld">
-        <composite-id name="id" class="DataBase.ComplaintId">
-            <key-property name="id" type="string">
-                <column name="ID" length="30" />
-            </key-property>
-            <key-property name="orderId" type="string">
-                <column name="orderID" length="30" />
-            </key-property>
-            <key-property name="comments" type="string">
-                <column name="comments" length="65535" />
-            </key-property>
-        </composite-id>
+        <id name="id" type="integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="orderId" type="string">
+            <column name="orderID" length="30" />
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" length="65535" />
+        </property>
     </class>
 </hibernate-mapping>
