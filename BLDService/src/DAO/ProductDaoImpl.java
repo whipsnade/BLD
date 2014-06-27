@@ -31,4 +31,9 @@ public class ProductDaoImpl extends BaseHibernateDAO<Product> implements IProduc
 		return null;
 	}
 
+	public Product getProductByCode(String code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

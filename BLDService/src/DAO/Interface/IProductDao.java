@@ -9,6 +9,7 @@ import DataBase.Product;
 public interface IProductDao extends IBaseHibernateDAO<Product> {
 	Product getProductByID(String ID);
 	Product getProductByName(String Name);
+	Product getProductByCode(String code);
 	List<Product> getProductListByStoreId(String StoreId);
 	List<Product> getProductListByFavorite(List<Favorite> flist);
 	
