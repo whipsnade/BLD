@@ -1,5 +1,12 @@
 package Business;
 
+import java.util.List;
+
+import DAO.DaoFactory;
+import DataBase.Favorite;
+import DataBase.Product;
+import DataBase.User;
+
 public class UserOperator {
 	private static UserOperator m_Instance = null;
 	 
@@ -13,6 +20,26 @@ public class UserOperator {
         }
         
         return m_Instance;
+    }
+    
+    public User SignIn(String phone,String password){
+    	return null;
+    	
+    }
+    
+    public User SignUp(String phone,String name,String password){
+    
+    	return null;
+    }
+    
+    public List<Product> getFavoriteList(String userID){
+    	List<Favorite> flist= DaoFactory.getInstance().getFavoriteDao().getFavoriteList(userID);
+    	return DaoFactory.getInstance().getProductDao().getProductListByFavorite(flist);
+    	
+    }
+    
+    public List<User> getAllUser(){
+    	return DaoFactory.getInstance().getUserDao().findAll();
     }
 	
 }
