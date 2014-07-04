@@ -8,8 +8,8 @@ public class ProductClass implements java.io.Serializable {
 
 	// Fields
 
-	private String id;
-	private String parentId;
+	private Integer id;
+	private Integer parentId;
 	private String name;
 
 	// Constructors
@@ -18,33 +18,27 @@ public class ProductClass implements java.io.Serializable {
 	public ProductClass() {
 	}
 
-	/** minimal constructor */
-	public ProductClass(String id) {
-		this.id = id;
-	}
-
 	/** full constructor */
-	public ProductClass(String id, String parentId, String name) {
-		this.id = id;
+	public ProductClass(Integer parentId, String name) {
 		this.parentId = parentId;
 		this.name = name;
 	}
 
 	// Property accessors
 
-	public String getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getParentId() {
+	public Integer getParentId() {
 		return this.parentId;
 	}
 
-	public void setParentId(String parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 

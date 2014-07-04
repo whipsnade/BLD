@@ -12,7 +12,13 @@ public class DaoFactory {
 	IProductDao product_dao;
 	IClassidDao class_dao;
 	IAddressDao address_dao;
-	
+	ILnkordertoproductDao lnkorder_pro_dao;
+	IFavoriteDao favorite_dao;
+	ILnkstoretoareaDao lnk_store_area_dao;
+	ILnkstoretoproductDao lnk_store_product_dao;
+	IProductClassDao product_class_dao;
+	IReturnOrderDao return_order_dao;
+	IWaiterDao waiter_dao;
 	
     private DaoFactory() {
     	
@@ -69,35 +75,60 @@ public class DaoFactory {
     public IBaseHibernateDAO<Complaint>  getComplaintDao(){
     	return new BaseHibernateDAO<Complaint>();
     }
-    public IBaseHibernateDAO<ComplaintId>  getComplaintIdDao(){
-    	return new BaseHibernateDAO<ComplaintId>();
-    }
-    public IBaseHibernateDAO<Favorite>  getFavoriteDao(){
-    	return new BaseHibernateDAO<Favorite>();
+    
+    public IFavoriteDao  getFavoriteDao(){
+    	if(favorite_dao==null){
+    		favorite_dao = new FavoriteDaoImpl();
+    	}
+    		return favorite_dao;
     }
     
-    public IBaseHibernateDAO<Lnkordertoproduct>  getLnkordertoproductDao(){
-    	return new BaseHibernateDAO<Lnkordertoproduct>();
+    public ILnkordertoproductDao getLnkordertoproductDao(){
+    	if(lnkorder_pro_dao==null){
+    		lnkorder_pro_dao = new LnkordertoproductDaoImpl();
+    	}
+    		return lnkorder_pro_dao;
+    	
     }
     
-    public IBaseHibernateDAO<Lnkstoretoarea>  getLnkstoretoareaDao(){
-    	return new BaseHibernateDAO<Lnkstoretoarea>();
+    public ILnkstoretoareaDao  getLnkstoretoareaDao(){
+    	
+    	if(lnk_store_area_dao==null){
+    		lnk_store_area_dao = new LnkstoretoareaDaoImpl();
+    	}
+    		return lnk_store_area_dao;
     }
     
-    public IBaseHibernateDAO<Lnkstoretoproduct>  getLnkstoretoproductDao(){
-    	return new BaseHibernateDAO<Lnkstoretoproduct>();
+    public ILnkstoretoproductDao getLnkstoretoproductDao(){
+    	
+    	if(lnk_store_product_dao==null){
+    		lnk_store_product_dao = new LnkstoretoproductDaoImpl();
+    	}
+    		return lnk_store_product_dao;
     }
     
-    public IBaseHibernateDAO<ProductClass>  getProductClassDao(){
-    	return new BaseHibernateDAO<ProductClass>();
+    public IProductClassDao  getProductClassDao(){
+    	 
+    	 if(product_class_dao==null){
+    		 product_class_dao = new ProductClassDaoImpl();
+     	}
+     		return product_class_dao;
     }
     
-    public IBaseHibernateDAO<Returnorder>  getReturnorderDao(){
-    	return new BaseHibernateDAO<Returnorder>();
+    public IReturnOrderDao  getReturnorderDao(){
+    	 
+    	 if(return_order_dao==null){
+    		 return_order_dao = new ReturnOrderDaoImpl();
+     	}
+     		return return_order_dao;
     }
     
-    public IBaseHibernateDAO<Waiter>  getWaiterDao(){
-    	return new BaseHibernateDAO<Waiter>();
+    public IWaiterDao  getWaiterDao(){
+    	 
+    	 if(waiter_dao==null){
+    		 waiter_dao = new WaiterDaoImpl();
+     	}
+     		return waiter_dao;
     }
     
     public IBaseHibernateDAO<Master>  getMasterDao(){

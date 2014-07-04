@@ -8,7 +8,7 @@ public class Classid implements java.io.Serializable {
 
 	// Fields
 
-	private String id;
+	private int id;
 	private String classname;
 	private String keyword;
 	private long record;
@@ -21,12 +21,12 @@ public class Classid implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Classid(String id) {
+	public Classid(int id) {
 		this.id = id;
 	}
 
 	/** full constructor */
-	public Classid(String id, String classname, String keyword, long record, long length) {
+	public Classid(int id, String classname, String keyword, long record, long length) {
 		this.id = id;
 		this.classname = classname;
 		this.keyword = keyword;
@@ -36,11 +36,11 @@ public class Classid implements java.io.Serializable {
 
 	// Property accessors
 
-	public String getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

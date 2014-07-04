@@ -3,6 +3,7 @@ package DAO;
 import java.util.List;
 
 import DAO.Interface.IProductDao;
+import DataBase.Favorite;
 import DataBase.Order;
 import DataBase.Product;
 import DataBase.Store;
@@ -20,45 +21,19 @@ public class ProductDaoImpl extends BaseHibernateDAO<Product> implements IProduc
 		return (Product) super.findByProperty("name",Name);
 	}
 
-	public Product getProductByPhone(String Phone) {
+	public List<Product> getProductListByFavorite(List<Favorite> flist) {
 		// TODO Auto-generated method stub
-		return (Product) super.findByProperty("phone",Phone);
+		return null;
 	}
 
-	public boolean saveProduct(Product temp) {
+	public List<Product> getProductListByStoreId(String StoreId) {
 		// TODO Auto-generated method stub
-		return super.save(temp);
+		return null;
 	}
 
-	public boolean updateProduct(Product domain) {
+	public Product getProductByCode(String code) {
 		// TODO Auto-generated method stub
-		return super.update(domain);
-	}
-
-	public boolean delete(Product domain) {
-		// TODO Auto-generated method stub
-		return super.delete(domain);
-	}
-
-	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return super.findAll();
-	}
-
-	public List<Product> findAll(int firstResult, int size) {
-		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
-	}
-
-	public List<Product> findByExample(Product domain) {
-		// TODO Auto-generated method stub
-		return super.findByExample(domain);
-	}
-
-	
-	public List<Product> findByProperty(String[] propertyNames, Object[] values) {
-		// TODO Auto-generated method stub
-		return super.findByProperty(propertyNames, values);
+		return null;
 	}
 
 }

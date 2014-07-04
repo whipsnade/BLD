@@ -1,13 +1,16 @@
 package DAO.Interface;
 
 
+import java.util.List;
+
+import DataBase.Favorite;
 import DataBase.Product;
 
 public interface IProductDao extends IBaseHibernateDAO<Product> {
 	Product getProductByID(String ID);
 	Product getProductByName(String Name);
-	Product getProductByPhone(String Phone);
-	boolean saveProduct(Product temp);
-	boolean updateProduct(Product domain);
+	Product getProductByCode(String code);
+	List<Product> getProductListByStoreId(String StoreId);
+	List<Product> getProductListByFavorite(List<Favorite> flist);
 	
 }

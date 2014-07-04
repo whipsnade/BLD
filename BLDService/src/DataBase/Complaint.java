@@ -8,7 +8,9 @@ public class Complaint implements java.io.Serializable {
 
 	// Fields
 
-	private ComplaintId id;
+	private Integer id;
+	private String orderId;
+	private String comments;
 
 	// Constructors
 
@@ -17,18 +19,35 @@ public class Complaint implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Complaint(ComplaintId id) {
-		this.id = id;
+	public Complaint(String orderId, String comments) {
+		this.orderId = orderId;
+		this.comments = comments;
 	}
 
 	// Property accessors
 
-	public ComplaintId getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(ComplaintId id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getComments() {
+		return this.comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
 }
