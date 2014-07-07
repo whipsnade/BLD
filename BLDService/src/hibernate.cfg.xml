@@ -37,6 +37,7 @@
 	<mapping resource="DataBase/Store.hbm.xml" />
 	<mapping resource="DataBase/User.hbm.xml" />
 	<mapping resource="DataBase/Waiter.hbm.xml" />
+	<mapping resource="DataBase/Suggest.hbm.xml" />
 </session-factory>
 
 </hibernate-configuration>

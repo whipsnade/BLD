@@ -18,6 +18,7 @@ import Common.IDOperation;
 import DAO.DaoFactory;
 
 import DataBase.Product;
+import DataBase.Suggest;
 import DataBase.User;
 
 
@@ -32,5 +33,12 @@ public class ProductUtilService {
 		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
 	}
 	
+	@GET
+	@Path("getAllSuggest")
+	@Produces(MediaType.APPLICATION_OCTET_STREAM)
+	public String getAllSuggest() throws UnsupportedEncodingException {
+		List<Suggest> list = DaoFactory.getInstance().getSuggestDao().findAll();
+		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
+	}
 	
 }

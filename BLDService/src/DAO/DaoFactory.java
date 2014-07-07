@@ -19,7 +19,7 @@ public class DaoFactory {
 	IProductClassDao product_class_dao;
 	IReturnOrderDao return_order_dao;
 	IWaiterDao waiter_dao;
-	
+	ISuggestDao suggest_dao;
     private DaoFactory() {
     	
     }
@@ -130,6 +130,14 @@ public class DaoFactory {
      	}
      		return waiter_dao;
     }
+    public ISuggestDao  getSuggestDao(){
+   	 
+   	 if(suggest_dao==null){
+   		suggest_dao = new SuggestDaoImpl();
+    	}
+    		return suggest_dao;
+   }
+    
     
     public IBaseHibernateDAO<Master>  getMasterDao(){
     	return new BaseHibernateDAO<Master>();
