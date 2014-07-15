@@ -33,6 +33,10 @@ public class ProductDaoImpl extends BaseHibernateDAO<Product> implements IProduc
 
 	public Product getProductByCode(String code) {
 		// TODO Auto-generated method stub
+		List<Product> list = super.findByProperty("code",code);
+		if(list !=null && list.size()>0){
+			return list.get(0);
+		}
 		return null;
 	}
 

@@ -41,4 +41,12 @@ public class ProductUtilService {
 		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
 	}
 	
+	
+	@GET
+	@Path("getProductByCode")
+	@Produces(MediaType.APPLICATION_OCTET_STREAM)
+	public String getProductByCode(@QueryParam("code") String code) throws UnsupportedEncodingException {
+		Product product = DaoFactory.getInstance().getProductDao().getProductByCode(code);
+		return URLEncoder.encode(CommonJson.object2Json(product), "utf-8");
+	}
 }
