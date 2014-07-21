@@ -19,8 +19,8 @@
         <property name="code" type="string">
             <column name="code" length="100" />
         </property>
-        <property name="price" type="long">
-            <column name="price" precision="10" scale="0" />
+        <property name="price" type="double">
+            <column name="price" precision="10" />
         </property>
         <property name="img" type="string">
             <column name="img" length="100" />

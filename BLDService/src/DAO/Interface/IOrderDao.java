@@ -1,6 +1,9 @@
 package DAO.Interface;
 
+import java.util.List;
+
 import DataBase.Order;
+import DataBase.Product;
 
 public interface IOrderDao extends IBaseHibernateDAO<Order> {
 	Order getOrderByID(String ID);

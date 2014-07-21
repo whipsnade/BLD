@@ -12,7 +12,7 @@ public class Product implements java.io.Serializable {
 	private String classId;
 	private String name;
 	private String code;
-	private long price;
+	private double price;
 	private String img;
 	private String description;
 
@@ -29,7 +29,7 @@ public class Product implements java.io.Serializable {
 
 	/** full constructor */
 	public Product(String id, String classId, String name, String code,
-			long price, String img, String description) {
+			double price, String img, String description) {
 		this.id = id;
 		this.classId = classId;
 		this.name = name;
@@ -73,11 +73,11 @@ public class Product implements java.io.Serializable {
 		this.code = code;
 	}
 
-	public long getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

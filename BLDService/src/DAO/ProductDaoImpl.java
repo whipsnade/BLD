@@ -13,12 +13,21 @@ public class ProductDaoImpl extends BaseHibernateDAO<Product> implements IProduc
 
 	public Product getProductByID(String ID) {
 		// TODO Auto-generated method stub
-		return (Product) super.findByProperty("ID",ID);
+		List<Product> list = super.findByProperty("id",ID);
+		if(list !=null && list.size()>0){
+			return list.get(0);
+		}
+		return null;
 	}
 
 	public Product getProductByName(String Name) {
 		// TODO Auto-generated method stub
-		return (Product) super.findByProperty("name",Name);
+
+		List<Product> list = super.findByProperty("name",Name);
+		if(list !=null && list.size()>0){
+			return list.get(0);
+		}
+		return null;
 	}
 
 	public List<Product> getProductListByFavorite(List<Favorite> flist) {

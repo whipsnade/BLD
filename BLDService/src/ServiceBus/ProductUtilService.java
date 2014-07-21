@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 
 
+import Business.ProductOperator;
 import Common.CommonJson;
 import Common.IDOperation;
 import DAO.DaoFactory;
@@ -31,6 +32,7 @@ public class ProductUtilService {
 	public String getAllProduct() throws UnsupportedEncodingException {
 		List<Product> list = DaoFactory.getInstance().getProductDao().findAll();
 		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
+		//return CommonJson.list2Json(list);
 	}
 	
 	@GET
@@ -48,5 +50,13 @@ public class ProductUtilService {
 	public String getProductByCode(@QueryParam("code") String code) throws UnsupportedEncodingException {
 		Product product = DaoFactory.getInstance().getProductDao().getProductByCode(code);
 		return URLEncoder.encode(CommonJson.object2Json(product), "utf-8");
+	}
+	
+	@GET
+	@Path("getProductByIDs")
+	@Produces(MediaType.APPLICATION_OCTET_STREAM)
+	public String getProductByIDs(@QueryParam("ids") String ids) throws UnsupportedEncodingException {
+		List<Product> list = ProductOperator.getInstance().getProductByIDs(ids);
+		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
 	}
 }
