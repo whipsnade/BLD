@@ -216,10 +216,16 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 
 	
 	@SuppressWarnings("unchecked")
-	public List<T> findAll() {
+	public List<T> findAll(String orderby, boolean isAsc) {
 		log.debug("finding all doamin instances");
 		try {
 			String queryString = "from "+getTableName();
+			if(isAsc){
+				queryString+=" order by "+orderby+ " ASC";
+			}else{
+				queryString+=" order by "+orderby+ " DESC";
+			
+			}
 			Query queryObject = getSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -230,11 +236,19 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		}
 	}
 	
+	
+	
 	@SuppressWarnings("unchecked")
-	public List<T> findAll(int firstResult,int size) {
+	public List<T> findAll(int firstResult,int size,String orderby, boolean isAsc) {
 		log.debug("finding all doamin instances");
 		try {
 			String queryString = "from "+getTableName();
+			if(isAsc){
+				queryString+=" order by "+orderby+ " ASC";
+			}else{
+				queryString+=" order by "+orderby+ " DESC";
+			
+			}
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setFirstResult(firstResult);
 			queryObject.setMaxResults(size);

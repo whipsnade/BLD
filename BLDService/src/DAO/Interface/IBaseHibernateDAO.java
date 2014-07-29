@@ -25,9 +25,9 @@ public interface IBaseHibernateDAO<T> {
 	
 	public List<T> findByProperty(String[] propertyNames, Object[] values);
 
-	public  List<T> findAll();
+	public  List<T> findAll(String orderby, boolean isAsc);
 	
-	public List<T> findAll(int firstResult,int size) ;
+	public List<T> findAll(int firstResult,int size,String orderby, boolean isAsc) ;
 
 	public  boolean update(T domain);
 

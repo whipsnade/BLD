@@ -24,7 +24,7 @@ public class WaiterDaoImpl extends BaseHibernateDAO<Waiter> implements IWaiterDa
 
 	public List<Waiter> getWaiterByStoreId(String StoreId) {
 		// TODO Auto-generated method stub
-		return null;
+		return super.findByProperty("storeId",StoreId);
 	}
 
 }

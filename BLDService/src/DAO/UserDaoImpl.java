@@ -37,14 +37,14 @@ public class UserDaoImpl extends BaseHibernateDAO<User> implements IUserDao {
 		return super.delete(domain);
 	}
 
-	public List<User> findAll() {
+	public List<User> findAll(String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll();
+		return super.findAll(orderby,isAsc);
 	}
 
-	public List<User> findAll(int firstResult, int size) {
+	public List<User> findAll(int firstResult, int size,String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
+		return super.findAll(firstResult, size,orderby,isAsc);
 	}
 
 	public List<User> findByExample(User domain) {

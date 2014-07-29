@@ -30,7 +30,7 @@ public class ProductUtilService {
 	@Path("getAllProduct")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public String getAllProduct() throws UnsupportedEncodingException {
-		List<Product> list = DaoFactory.getInstance().getProductDao().findAll();
+		List<Product> list = DaoFactory.getInstance().getProductDao().findAll("id",true);
 		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
 		//return CommonJson.list2Json(list);
 	}
@@ -39,7 +39,7 @@ public class ProductUtilService {
 	@Path("getAllSuggest")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public String getAllSuggest() throws UnsupportedEncodingException {
-		List<Suggest> list = DaoFactory.getInstance().getSuggestDao().findAll();
+		List<Suggest> list = DaoFactory.getInstance().getSuggestDao().findAll("id",true);
 		return URLEncoder.encode(CommonJson.list2Json(list), "utf-8");
 	}
 	

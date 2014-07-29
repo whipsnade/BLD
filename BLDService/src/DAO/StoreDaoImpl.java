@@ -6,8 +6,14 @@ import DAO.Interface.IStoreDao;
 import DataBase.Store;
 import DataBase.User;
 
-public class StoreDaoImpl extends BaseHibernateDAO<Store> implements IStoreDao {
 
+public class StoreDaoImpl extends BaseHibernateDAO<Store> implements IStoreDao {
+	public static enum PaymentType{
+		Cash,
+		Net,
+		All
+	}
+	
 	public Store getStoreByID(String ID) {
 		// TODO Auto-generated method stub
 		return (Store) super.findByProperty("ID",ID);
@@ -38,14 +44,14 @@ public class StoreDaoImpl extends BaseHibernateDAO<Store> implements IStoreDao {
 		return super.delete(domain);
 	}
 
-	public List<Store> findAll() {
+	public List<Store> findAll(String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll();
+		return super.findAll(orderby,isAsc);
 	}
 
-	public List<Store> findAll(int firstResult, int size) {
+	public List<Store> findAll(int firstResult, int size,String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
+		return super.findAll(firstResult, size,orderby,isAsc);
 	}
 
 	public List<Store> findByExample(Store domain) {

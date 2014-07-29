@@ -38,14 +38,14 @@ public class ClassidDaoImpl extends BaseHibernateDAO<Classid> implements IClassi
 		return super.delete(domain);
 	}
 
-	public List<Classid> findAll() {
+	public List<Classid> findAll(String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll();
+		return super.findAll(orderby,isAsc);
 	}
 
-	public List<Classid> findAll(int firstResult, int size) {
+	public List<Classid> findAll(int firstResult, int size,String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
+		return super.findAll(firstResult, size,orderby,isAsc);
 	}
 
 	public List<Classid> findByExample(Classid domain) {

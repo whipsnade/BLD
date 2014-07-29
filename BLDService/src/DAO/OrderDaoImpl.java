@@ -39,14 +39,14 @@ public class OrderDaoImpl extends BaseHibernateDAO<Order> implements IOrderDao {
 		return super.delete(domain);
 	}
 
-	public List<Order> findAll() {
+	public List<Order> findAll(String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll();
+		return super.findAll(orderby,isAsc);
 	}
 
-	public List<Order> findAll(int firstResult, int size) {
+	public List<Order> findAll(int firstResult, int size,String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
+		return super.findAll(firstResult, size,orderby,isAsc);
 	}
 
 	public List<Order> findByExample(Order domain) {

@@ -38,14 +38,14 @@ public class LnkordertoproductDaoImpl extends BaseHibernateDAO<Lnkordertoproduct
 		return super.delete(domain);
 	}
 
-	public List<Lnkordertoproduct> findAll() {
+	public List<Lnkordertoproduct> findAll(String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll();
+		return super.findAll(orderby,isAsc);
 	}
 
-	public List<Lnkordertoproduct> findAll(int firstResult, int size) {
+	public List<Lnkordertoproduct> findAll(int firstResult, int size,String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
+		return super.findAll(firstResult, size,orderby,isAsc);
 	}
 
 	public List<Lnkordertoproduct> findByExample(Lnkordertoproduct domain) {

@@ -39,7 +39,7 @@ public class UserOperator {
     }
     
     public List<User> getAllUser(){
-    	return DaoFactory.getInstance().getUserDao().findAll();
+    	return DaoFactory.getInstance().getUserDao().findAll("id",true);
     }
 	
 }

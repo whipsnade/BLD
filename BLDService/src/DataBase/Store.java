@@ -16,6 +16,7 @@ public class Store implements java.io.Serializable {
 	private double longitude;
 	private double latitude;
 	private String tel;
+	private short payment;
 	private Date joinDate;
 
 	// Constructors
@@ -31,13 +32,14 @@ public class Store implements java.io.Serializable {
 
 	/** full constructor */
 	public Store(String id, String name, String address, double longitude,
-			double latitude, String tel, Date joinDate) {
+			double latitude, String tel, short payment, Date joinDate) {
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.tel = tel;
+		this.payment = payment;
 		this.joinDate = joinDate;
 	}
 
@@ -89,6 +91,14 @@ public class Store implements java.io.Serializable {
 
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+
+	public short getPayment() {
+		return this.payment;
+	}
+
+	public void setPayment(short payment) {
+		this.payment = payment;
 	}
 
 	public Date getJoinDate() {

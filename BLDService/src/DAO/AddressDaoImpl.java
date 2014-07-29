@@ -39,14 +39,14 @@ public class AddressDaoImpl extends BaseHibernateDAO<Address> implements IAddres
 		return super.delete(domain);
 	}
 
-	public List<Address> findAll() {
+	public List<Address> findAll(String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll();
+		return super.findAll(orderby,isAsc);
 	}
 
-	public List<Address> findAll(int firstResult, int size) {
+	public List<Address> findAll(int firstResult, int size,String orderby, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return super.findAll(firstResult, size);
+		return super.findAll(firstResult, size,orderby,isAsc);
 	}
 
 	public List<Address> findByExample(Address domain) {
